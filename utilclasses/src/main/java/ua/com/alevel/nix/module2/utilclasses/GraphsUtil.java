@@ -54,8 +54,7 @@ public class GraphsUtil {
                     for (int j = 0; j < numberOfNeighbours; j++) {
                         int[] edgeInfo = getGraphEdgeFromString(linesAsArrayList.get(++l));
                         graph.addEdge(i, edgeInfo[0] - 1, edgeInfo[1]);
-//                        graph.addEdge(i, i + 1 + j, Integer.valueOf(linesAsArrayList.get(++l)));
-                    }
+                   }
                     l++;
                 }
                 int numberOfShortestDistantionCounts = Integer.valueOf(linesAsArrayList.get(l));

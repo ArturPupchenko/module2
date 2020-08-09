@@ -58,34 +58,31 @@ public class Graph {
         int[] distance = new int[numberOfVertices];
         int INFINITY = 20000;
 
-        //Initialize all the distance
+        
         for (int i = 0; i < numberOfVertices; i++) {
             distance[i] = 20000;
         }
 
-        //start from the vertex 0
+        
         distance[sourceVertexIndex] = 0;
 
-        //create SPT
+        
         for (int i = 0; i < numberOfVertices; i++) {
 
-            //get the vertex with the minimum distance
+        
             int vertex_U = getMinimumVertex(spt, distance);
 
-            //include this vertex in SPT
+            
             spt[vertex_U] = true;
 
-            //iterate through all the adjacent vertices of above vertex and update the keys
+    
             for (int vertex_V = 0; vertex_V < numberOfVertices; vertex_V++) {
-                //check of the edge between vertex_U and vertex_V
+               
                 if (matrix[vertex_U][vertex_V] > 0) {
-                    //check if this vertex 'vertex_V' already in spt and
-                    // if distance[vertex_V]!=Infinity
+                    
 
                     if (spt[vertex_V] == false && matrix[vertex_U][vertex_V] != INFINITY) {
-                        //check if distance needs an update or not
-                        //means check total weight from source to vertex_V is less than
-                        //the current distance value, if yes then update the distance
+                    
 
                         int newKey = matrix[vertex_U][vertex_V] + distance[vertex_U];
                         if (newKey < distance[vertex_V])
@@ -94,7 +91,7 @@ public class Graph {
                 }
             }
         }
-        //print shortest path between vertices
+        
         printResultToTextFile(distance, targetVertexName);
     }
 
